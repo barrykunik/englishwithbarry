@@ -4,12 +4,22 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Adulti from "./pages/Adulti";
+import Bambini from "./pages/Bambini";
+import Servizi from "./pages/Servizi";
+import ChiSono from "./pages/ChiSono";
+import Recensioni from "./pages/Recensioni";
 import NotFound from "./pages/NotFound";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/adulti" component={Adulti} />
+      <Route path="/bambini" component={Bambini} />
+      <Route path="/servizi" component={Servizi} />
+      <Route path="/chi-sono" component={ChiSono} />
+      <Route path="/recensioni" component={Recensioni} />
       <Route component={NotFound} />
     </Switch>
   );
