@@ -1,25 +1,37 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
+/* ============================================================
+   HOME PAGE — English With Barry
+   Design: Warm Modernism / Mediterranean Energy
+   Sections: Hero → Stats → Courses → Method → Services → Testimonials → About → Contact → Footer
+   ============================================================ */
 
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
- */
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import StatsBar from "@/components/StatsBar";
+import CoursesSection from "@/components/CoursesSection";
+import MethodSection from "@/components/MethodSection";
+import ServicesSection from "@/components/ServicesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import AboutSection from "@/components/AboutSection";
+import LevelTestSection from "@/components/LevelTestSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
+
 export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
+    <div className="min-h-screen bg-sand">
+      <Navbar />
+      <HeroSection />
+      <StatsBar />
+      <CoursesSection />
+      <MethodSection />
+      <ServicesSection />
+      <TestimonialsSection />
+      <LevelTestSection />
+      <AboutSection />
+      <ContactSection />
+      <Footer />
+      <WhatsAppFloat />
     </div>
   );
 }
