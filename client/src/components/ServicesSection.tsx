@@ -114,9 +114,7 @@ export default function ServicesSection() {
         {/* CTA */}
         <div className="text-center mt-12">
           <a
-            href="https://wa.me/393000000000"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/servizi"
             className="btn-amber inline-block px-10 py-4 rounded-full font-body font-semibold text-base"
           >
             <span>Scopri tutti i servizi</span>
