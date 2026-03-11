@@ -7,7 +7,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Star } from "lucide-react";
 
-const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663421105445/cFGdWDkrANNYKLKZNYEBQs/IMG_20161011_191624_d4b1dbe4.jpg";
+const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663421105445/cFGdWDkrANNYKLKZNYEBQs/IMG_20161011_191624_cropped_0cc0a1c7.jpg";
 
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
