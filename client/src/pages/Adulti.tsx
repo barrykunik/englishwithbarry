@@ -1,7 +1,7 @@
-/* ============================================================
+/*
    ADULTI PAGE — English With Barry
    Design: Warm Mediterranean style
-   Dedicated page for adult courses
+   Exact content from original website with modern graphics
    ============================================================ */
 
 import { useRef, useEffect, useState } from "react";
@@ -28,8 +28,10 @@ function useInView(threshold = 0.15) {
 
 export default function Adulti() {
   const hero = useInView();
-  const features = useInView();
-  const levels = useInView();
+  const suited = useInView();
+  const pathSection = useInView();
+  const method = useInView();
+  const whyEffective = useInView();
   const cta = useInView();
 
   return (
@@ -39,210 +41,237 @@ export default function Adulti() {
       {/* Hero Section */}
       <section
         ref={hero.ref}
-        className={`py-20 md:py-32 bg-white overflow-hidden transition-all duration-700 ${
+        className={`py-16 md:py-24 bg-gradient-to-br from-navy to-navy/90 overflow-hidden transition-all duration-700 ${
           hero.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="font-mono-label text-sm tracking-widest text-amber uppercase">Corsi per Adulti</span>
-              <h1 className="font-display text-5xl md:text-6xl font-bold text-navy mt-4 mb-6 leading-tight">
-                Parla inglese con <span className="italic text-amber">sicurezza</span>
-              </h1>
-              <p className="font-body text-lg text-foreground/80 leading-relaxed mb-8">
-                Dal livello zero alla fluency. Lezioni pratiche, coinvolgenti e personalizzate per adulti e professionisti che vogliono imparare un inglese vivo e reale.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="https://wa.me/393000000000"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-amber px-8 py-4 rounded-xl font-body font-semibold text-center"
-                >
-                  Inizia Gratuitamente
-                </a>
-                <a
-                  href="#dettagli"
-                  className="btn-outline px-8 py-4 rounded-xl font-body font-semibold text-center"
-                >
-                  Scopri di più
-                </a>
-              </div>
-            </div>
-            <div className="relative">
-              <img
-                src={ADULTS_IMAGE}
-                alt="Adulti in classe"
-                className="rounded-3xl shadow-lg w-full h-auto object-cover"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-amber text-navy rounded-2xl p-6 shadow-lg max-w-xs">
-                <p className="font-display text-2xl font-bold mb-2">20+</p>
-                <p className="font-body text-sm">Anni di esperienza nel coaching di adulti</p>
-              </div>
-            </div>
+          <div className="text-center">
+            <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+              Inglese per adulti
+            </h1>
+            <p className="text-xl text-white/90 font-serif italic">Dal livello zero alla fluency</p>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section
-        ref={features.ref}
-        className={`py-20 md:py-28 bg-navy text-white overflow-hidden transition-all duration-700 ${
-          features.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="font-mono-label text-sm tracking-widest text-amber uppercase">Come Funziona</span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold mt-4">
-              Un percorso su misura per te
-            </h2>
-          </div>
+      {/* Introduction Section */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display text-4xl font-bold text-navy mb-8">Percorsi di Inglese per Adulti a Padova</h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Users,
-                title: "One-to-One o Gruppi",
-                desc: "Scegli il formato che preferisci: lezioni individuali per attenzione totale o piccoli gruppi per interazione e condivisione.",
-              },
-              {
-                icon: MapPin,
-                title: "Online o in Presenza",
-                desc: "Lezioni a Padova in aula oppure comodamente da casa. Stessa qualità, massima flessibilità.",
-              },
-              {
-                icon: Monitor,
-                title: "Metodo T.E.D.",
-                desc: "Ispirato ai TED Talks: ascolto autentico, vocabolario in contesto reale, sicurezza nel parlare.",
-              },
-              {
-                icon: BookOpen,
-                title: "Conversazione & Fluency",
-                desc: "Focus sulla capacità di parlare naturalmente. Niente noioso studio di grammatica.",
-              },
-              {
-                icon: Zap,
-                title: "Progressi Rapidi",
-                desc: "Metodo collaudato che produce risultati concreti. Vedrai i progressi in poche settimane.",
-              },
-              {
-                icon: CheckCircle2,
-                title: "Supporto Personalizzato",
-                desc: "Barry segue il tuo progresso e adatta le lezioni ai tuoi obiettivi specifici.",
-              },
-            ].map((feature, i) => (
-              <div key={i} className="bg-navy-dark rounded-2xl p-8 border border-white/10">
-                <feature.icon className="w-10 h-10 text-amber mb-4" />
-                <h3 className="font-display text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="font-body text-sm text-white/80 leading-relaxed">{feature.desc}</p>
-              </div>
-            ))}
+          <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+            <p>
+              Con English with Barry puoi seguire percorsi di inglese per adulti a Padova, pensati per chi vuole iniziare da zero, ripartire dalle basi o migliorare la propria fluency in inglese.
+            </p>
+            <p>
+              I percorsi sono principalmente online, per garantire flessibilità e continuità, con possibilità di svolgerli anche in presenza a Padova, su richiesta.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Levels Section */}
+      {/* A chi sono rivolti */}
       <section
-        ref={levels.ref}
-        id="dettagli"
-        className={`py-20 md:py-28 bg-white overflow-hidden transition-all duration-700 ${
-          levels.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        ref={suited.ref}
+        className={`py-16 md:py-24 bg-sand transition-all duration-700 ${
+          suited.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="font-mono-label text-sm tracking-widest text-amber uppercase">Percorsi</span>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mt-4">
-              Da A1 a C1 — Tutti i livelli
-            </h2>
-            <p className="font-body text-lg text-foreground/80 mt-6 max-w-2xl mx-auto">
-              Indipendentemente dal tuo livello attuale, abbiamo un percorso pensato per te.
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display text-4xl font-bold text-navy mb-8">A chi sono rivolti i percorsi</h2>
+          
+          <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-100">
+            <p className="text-lg font-semibold text-navy mb-6">Il percorso è adatto a te se:</p>
+            
+            <ul className="space-y-4 mb-8">
+              <li className="flex items-start gap-4">
+                <CheckCircle2 className="w-6 h-6 text-amber flex-shrink-0 mt-1" />
+                <span className="text-gray-700 text-lg">non hai mai studiato inglese</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <CheckCircle2 className="w-6 h-6 text-amber flex-shrink-0 mt-1" />
+                <span className="text-gray-700 text-lg">lo hai studiato poco</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <CheckCircle2 className="w-6 h-6 text-amber flex-shrink-0 mt-1" />
+                <span className="text-gray-700 text-lg">lo capisci ma fai fatica a parlarlo</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <CheckCircle2 className="w-6 h-6 text-amber flex-shrink-0 mt-1" />
+                <span className="text-gray-700 text-lg">vuoi sentirti più sicuro quando parli inglese</span>
+              </li>
+            </ul>
+
+            <p className="text-gray-700 text-lg italic border-t pt-6">
+              L'obiettivo non è studiare l'inglese come a scuola, ma usarlo nella vita reale, con naturalezza.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Un percorso di inglese */}
+      <section
+        ref={pathSection.ref}
+        className={`py-16 md:py-24 bg-white transition-all duration-700 ${
+          pathSection.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}
+      >
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display text-4xl font-bold text-navy mb-8">Un percorso di inglese, non semplici lezioni</h2>
+          
+          <p className="text-lg text-gray-700 mb-12 leading-relaxed">
+            A differenza delle classiche lezioni di inglese, i percorsi di inglese a Padova di English with Barry creano un ambiente immersivo, in cui ogni incontro è collegato al successivo.
+          </p>
+
+          <h3 className="text-2xl font-bold text-navy mb-8">Come si svolgono i percorsi</h3>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-sand rounded-lg p-6 border border-gray-200">
+              <div className="flex items-center gap-3 mb-4">
+                <Monitor className="w-6 h-6 text-amber" />
+                <h4 className="font-semibold text-navy">Modalità</h4>
+              </div>
+              <p className="text-gray-700">Percorsi di inglese online o in presenza a Padova</p>
+            </div>
+
+            <div className="bg-sand rounded-lg p-6 border border-gray-200">
+              <div className="flex items-center gap-3 mb-4">
+                <Users className="w-6 h-6 text-amber" />
+                <h4 className="font-semibold text-navy">Formato</h4>
+              </div>
+              <p className="text-gray-700">Lezioni individuali (one-to-one) o in piccoli gruppi</p>
+            </div>
+
+            <div className="bg-sand rounded-lg p-6 border border-gray-200">
+              <div className="flex items-center gap-3 mb-4">
+                <Zap className="w-6 h-6 text-amber" />
+                <h4 className="font-semibold text-navy">Personalizzazione</h4>
+              </div>
+              <p className="text-gray-700">Percorsi personalizzati in base al livello e agli obiettivi</p>
+            </div>
+          </div>
+
+          <div className="bg-blue-50 rounded-lg p-8 border border-blue-100">
+            <h4 className="text-xl font-semibold text-navy mb-6">Ogni lezione è strutturata per aiutarti a:</h4>
+            <ul className="space-y-3">
+              <li className="flex items-center gap-3 text-gray-700">
+                <span className="w-2 h-2 bg-amber rounded-full"></span>
+                Comprendere meglio l'inglese parlato
+              </li>
+              <li className="flex items-center gap-3 text-gray-700">
+                <span className="w-2 h-2 bg-amber rounded-full"></span>
+                Parlare con più continuità
+              </li>
+              <li className="flex items-center gap-3 text-gray-700">
+                <span className="w-2 h-2 bg-amber rounded-full"></span>
+                Acquisire sicurezza nel tempo
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Metodo T.E.D. */}
+      <section
+        ref={method.ref}
+        className={`py-16 md:py-24 bg-sand transition-all duration-700 ${
+          method.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}
+      >
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-display text-4xl font-bold text-navy mb-8">Metodo di insegnamento per adulti: Metodo T.E.D.</h2>
+          
+          <p className="text-lg text-gray-700 mb-12 leading-relaxed">
+            Per i percorsi di inglese per adulti utilizzo il <strong>Metodo T.E.D.</strong>, un approccio pratico ispirato ai TED Talks, pensato per sviluppare comprensione e speaking in modo naturale.
+          </p>
+
+          <h3 className="text-2xl font-bold text-navy mb-8">Come funziona il Metodo T.E.D.</h3>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white rounded-lg p-8 border-l-4 border-amber shadow-sm">
+              <h4 className="text-xl font-bold text-navy mb-4">Talk</h4>
+              <p className="text-gray-700">Ascolti inglese reale, spiegato e guidato</p>
+            </div>
+
+            <div className="bg-white rounded-lg p-8 border-l-4 border-amber shadow-sm">
+              <h4 className="text-xl font-bold text-navy mb-4">Extract</h4>
+              <p className="text-gray-700">Individui il vocabolario e le idee chiave</p>
+            </div>
+
+            <div className="bg-white rounded-lg p-8 border-l-4 border-amber shadow-sm">
+              <h4 className="text-xl font-bold text-navy mb-4">Describe</h4>
+              <p className="text-gray-700">Rielabori il contenuto con parole tue</p>
+            </div>
+          </div>
+
+          <p className="text-lg text-gray-700 italic text-center mb-12 p-6 bg-white rounded-lg border border-gray-200">
+            Questo metodo rende l'inglese attivo, non teorico.
+          </p>
+        </div>
+      </section>
+
+      {/* Perché è efficace */}
+      <section
+        ref={whyEffective.ref}
+        className={`py-16 md:py-24 bg-white transition-all duration-700 ${
+          whyEffective.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        }`}
+      >
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h3 className="text-3xl font-bold text-navy mb-8">Perché è efficace</h3>
+
+          <div className="bg-gradient-to-br from-amber/10 to-amber/5 rounded-lg p-8 border border-amber/20">
+            <p className="text-lg font-semibold text-navy mb-6">Il Metodo T.E.D. è efficace:</p>
+            
+            <ul className="space-y-4 mb-8">
+              <li className="flex items-start gap-4">
+                <CheckCircle2 className="w-6 h-6 text-amber flex-shrink-0 mt-1" />
+                <span className="text-gray-700 text-lg">anche se parti da zero</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <CheckCircle2 className="w-6 h-6 text-amber flex-shrink-0 mt-1" />
+                <span className="text-gray-700 text-lg">se vuoi migliorare la comprensione orale</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <CheckCircle2 className="w-6 h-6 text-amber flex-shrink-0 mt-1" />
+                <span className="text-gray-700 text-lg">se vuoi parlare inglese in modo più fluido</span>
+              </li>
+            </ul>
+
+            <p className="text-lg italic text-gray-700 border-t border-amber/30 pt-6">
+              L'inglese non viene memorizzato, ma utilizzato.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                level: "A1 — Principiante",
-                title: "Primi Passi",
-                desc: "Nessuna esperienza? Nessun problema. Partiamo dalle basi e costruiamo una solida fondazione.",
-                features: ["Alfabeto e pronuncia", "Vocabolario essenziale", "Frasi di base", "Sicurezza iniziale"],
-              },
-              {
-                level: "A2 — Elementare",
-                title: "Consolidamento",
-                desc: "Conosci le basi. Ora ampliamo il vocabolario e iniziamo a costruire frasi più complesse.",
-                features: ["Conversazione semplice", "Tempi verbali base", "Situazioni quotidiane", "Crescente sicurezza"],
-              },
-              {
-                level: "B1 — Intermedio",
-                title: "Conversazione Fluida",
-                desc: "Puoi esprimere idee e opinioni. Ora lavoriamo sulla fluidità e sulla naturalezza.",
-                features: ["Conversazione naturale", "Vocabolario avanzato", "Tempi complessi", "Sicurezza nel parlare"],
-              },
-              {
-                level: "B2 — Intermedio Superiore",
-                title: "Quasi Fluente",
-                desc: "Parli bene. Perfezzioniamo la pronuncia, l'accento e la capacità di affrontare argomenti complessi.",
-                features: ["Discussioni approfondite", "Pronuncia naturale", "Lessico specializzato", "Quasi madrelingua"],
-              },
-              {
-                level: "C1 — Avanzato",
-                title: "Padronanza",
-                desc: "Sei quasi madrelingua. Lavoriamo su sfumature, accento e stili comunicativi avanzati.",
-                features: ["Espressione sofisticata", "Accento naturale", "Comprensione totale", "Madrelingua"],
-              },
-            ].map((item, i) => (
-              <div key={i} className="bg-sand rounded-2xl p-8 border border-border">
-                <span className="font-mono-label text-xs tracking-widest text-amber uppercase">{item.level}</span>
-                <h3 className="font-display text-2xl font-bold text-navy mt-3 mb-2">{item.title}</h3>
-                <p className="font-body text-sm text-foreground/80 mb-6">{item.desc}</p>
-                <ul className="space-y-2">
-                  {item.features.map((f, j) => (
-                    <li key={j} className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-amber shrink-0" />
-                      <span className="font-body text-sm">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          <p className="text-sm text-gray-500 mt-8 text-center">
+            Metodo ispirato ai contenuti di TED Talks. English with Barry non è affiliato con TED.
+          </p>
         </div>
       </section>
 
       {/* CTA Section */}
       <section
         ref={cta.ref}
-        className={`py-20 md:py-28 bg-amber overflow-hidden transition-all duration-700 ${
+        className={`py-16 md:py-24 bg-navy text-white transition-all duration-700 ${
           cta.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-navy mb-6">
-            Pronto a iniziare?
-          </h2>
-          <p className="font-body text-lg text-navy/80 mb-10 max-w-2xl mx-auto">
-            Fai il test gratuito per scoprire il tuo livello, oppure contatta Barry direttamente per una consulenza personalizzata.
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">Pronto a iniziare?</h2>
+          <p className="text-xl text-white/90 mb-8">
+            Fai il test gratuito per scoprire il tuo livello di inglese e ricevi un percorso personalizzato.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://wa.me/393000000000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-navy text-white px-8 py-4 rounded-xl font-body font-semibold hover:bg-navy/90 transition-colors"
-            >
-              Contatta Barry su WhatsApp
-            </a>
-            <a
-              href="/"
-              className="bg-white text-navy px-8 py-4 rounded-xl font-body font-semibold hover:bg-white/90 transition-colors"
-            >
-              Fai il Test Gratuito
-            </a>
-          </div>
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = "https://wa.me/393207544336?text=Ciao%20Barry!%20Sono%20interessato%20ai%20corsi%20di%20inglese%20per%20adulti.";
+            }}
+            className="inline-block bg-amber hover:bg-amber/90 text-navy font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105"
+          >
+            Contattami su WhatsApp
+          </a>
         </div>
       </section>
 

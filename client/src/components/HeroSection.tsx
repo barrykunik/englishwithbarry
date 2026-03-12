@@ -86,7 +86,7 @@ export default function HeroSection() {
               ))}
             </div>
             <span className="font-body text-sm text-white/80">
-              <strong className="text-white">+100 studenti</strong> soddisfatti
+              <strong className="text-white"></strong> 
             </span>
           </div>
 
