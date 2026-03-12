@@ -10,7 +10,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 
-const TEACHER_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663421105445/cFGdWDkrANNYKLKZNYEBQs/IMG_20161011_191624_cropped_0cc0a1c7.jpg";
+const TEACHER_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663421105445/cFGdWDkrANNYKLKZNYEBQs/barry-portrait-cropped_1e046a5b.jpg";
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -250,7 +250,7 @@ export default function ChiSono() {
             Contattami per una consulenza gratuita.
           </p>
           <a
-            href="https://wa.me/393000000000"
+            href="https://wa.me/393937620160"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-navy text-white px-8 py-4 rounded-xl font-body font-semibold hover:bg-navy/90 transition-colors"

@@ -263,10 +263,10 @@ export default function Adulti() {
             Fai il test gratuito per scoprire il tuo livello di inglese e ricevi un percorso personalizzato.
           </p>
           <a
-            href="/"
+            href="#"
             onClick={(e) => {
               e.preventDefault();
-              window.location.href = "https://wa.me/393207544336?text=Ciao%20Barry!%20Sono%20interessato%20ai%20corsi%20di%20inglese%20per%20adulti.";
+              window.location.href = "https://wa.me/393937620160?text=Ciao%20Barry!%20Sono%20interessato%20ai%20corsi%20di%20inglese%20per%20adulti.";
             }}
             className="inline-block bg-amber hover:bg-amber/90 text-navy font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105"
           >

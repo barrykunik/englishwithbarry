@@ -43,7 +43,7 @@ export default function Footer() {
             {/* Social */}
             <div className="flex gap-3 mt-6">
               <a
-                href="https://wa.me/393000000000"
+                href="https://wa.me/393937620160"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#25D366] flex items-center justify-center transition-colors"
@@ -106,7 +106,7 @@ export default function Footer() {
                 corsiinglesepadova@gmail.com
               </a>
               <a
-                href="https://wa.me/393000000000"
+                href="https://wa.me/393937620160"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 font-body text-sm text-white/60 hover:text-white transition-colors"
@@ -126,7 +126,7 @@ export default function Footer() {
                 Non sai qual è il tuo livello di inglese?
               </p>
               <a
-                href="https://wa.me/393000000000"
+                href="https://wa.me/393937620160"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-body text-xs font-semibold text-amber hover:text-white transition-colors"
