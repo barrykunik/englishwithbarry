@@ -45,7 +45,7 @@ export default function ChiSono() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
               <span className="font-mono-label text-sm tracking-widest text-amber uppercase">Chi Sono</span>
               <h1 className="font-display text-5xl md:text-6xl font-bold text-navy mt-4 mb-6 leading-tight">
@@ -85,15 +85,17 @@ export default function ChiSono() {
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <img
-                src={TEACHER_IMAGE}
-                alt="Barry, insegnante di inglese"
-                className="rounded-3xl shadow-lg w-full h-auto object-cover"
-              />
-              <div className="absolute -bottom-6 -left-6 bg-navy text-white rounded-2xl p-6 shadow-lg max-w-xs">
-                <p className="font-display text-sm font-bold mb-1">🇦🇺 Australiano</p>
-                <p className="font-body text-xs">Madrelingua con accento autentico</p>
+            <div className="relative flex justify-center">
+              <div className="w-full max-w-md">
+                <img
+                  src={TEACHER_IMAGE}
+                  alt="Barry, insegnante di inglese"
+                  className="rounded-3xl shadow-lg w-full h-auto object-contain"
+                />
+                <div className="absolute -bottom-6 -left-6 bg-navy text-white rounded-2xl p-6 shadow-lg max-w-xs">
+                  <p className="font-display text-sm font-bold mb-1">🇦🇺 Australiano</p>
+                  <p className="font-body text-xs">Madrelingua con accento autentico</p>
+                </div>
               </div>
             </div>
           </div>
