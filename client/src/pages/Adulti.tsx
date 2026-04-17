@@ -56,6 +56,51 @@ export default function Adulti() {
         </div>
       </section>
 
+      {/* Sub-page cards */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <span className="font-mono-label text-sm tracking-widest text-amber uppercase">Scegli il tuo percorso</span>
+            <h2 className="font-display text-3xl font-bold text-navy mt-2">Individuale o di gruppo?</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <a
+              href="/adulti/individuali"
+              className="group bg-sand rounded-2xl p-8 border border-border hover:border-amber hover:shadow-lg transition-all duration-300"
+            >
+              <div className="font-mono-label text-xs text-amber uppercase tracking-widest mb-3">One-to-one</div>
+              <h3 className="font-display text-2xl font-bold text-navy mb-3 group-hover:text-amber transition-colors">
+                Percorsi Individuali →
+              </h3>
+              <p className="font-body text-sm text-foreground/70 leading-relaxed mb-4">
+                Travelling English, Business English o Fluent English. Lezioni personalizzate al 100% sui tuoi obiettivi e ritmi.
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                {["€250", "€360", "€480", "€720"].map((p) => (
+                  <span key={p} className="bg-white border border-border rounded-lg px-3 py-1 font-mono-label text-xs text-navy">{p}</span>
+                ))}
+              </div>
+            </a>
+            <a
+              href="/adulti/gruppo"
+              className="group bg-sand rounded-2xl p-8 border border-border hover:border-amber hover:shadow-lg transition-all duration-300"
+            >
+              <div className="font-mono-label text-xs text-amber uppercase tracking-widest mb-3">Piccoli gruppi</div>
+              <h3 className="font-display text-2xl font-bold text-navy mb-3 group-hover:text-amber transition-colors">
+                Percorsi di Gruppo →
+              </h3>
+              <p className="font-body text-sm text-foreground/70 leading-relaxed mb-4">
+                Gruppi da 2 a 10 persone. 30 ore di percorso strutturato, online, con dinamica di gruppo stimolante.
+              </p>
+              <div className="flex gap-2 flex-wrap">
+                <span className="bg-white border border-border rounded-lg px-3 py-1 font-mono-label text-xs text-navy">€159 – €199</span>
+                <span className="bg-white border border-border rounded-lg px-3 py-1 font-mono-label text-xs text-navy">30 ore</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Introduction Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -9,6 +9,8 @@ import Bambini from "./pages/Bambini";
 import Servizi from "./pages/Servizi";
 import ChiSono from "./pages/ChiSono";
 import Recensioni from "./pages/Recensioni";
+import PercorsiIndividuali from "./pages/PercorsiIndividuali";
+import PercorsiGruppo from "./pages/PercorsiGruppo";
 import NotFound from "./pages/NotFound";
 
 function Router() {
@@ -16,6 +18,8 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/adulti" component={Adulti} />
+      <Route path="/adulti/individuali" component={PercorsiIndividuali} />
+      <Route path="/adulti/gruppo" component={PercorsiGruppo} />
       <Route path="/bambini" component={Bambini} />
       <Route path="/servizi" component={Servizi} />
       <Route path="/chi-sono" component={ChiSono} />
