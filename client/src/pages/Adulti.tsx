@@ -87,10 +87,6 @@ export default function Adulti() {
               <p className="font-body text-sm text-foreground/70 leading-relaxed mb-4">
                 Gruppi da 2 a 10 persone. 30 ore di percorso strutturato, online, con dinamica di gruppo stimolante.
               </p>
-              <div className="flex gap-2 flex-wrap">
-                <span className="bg-white border border-border rounded-lg px-3 py-1 font-mono-label text-xs text-navy">€159 – €199</span>
-                <span className="bg-white border border-border rounded-lg px-3 py-1 font-mono-label text-xs text-navy">30 ore</span>
-              </div>
             </a>
           </div>
         </div>
