@@ -10,7 +10,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 
-const KIDS_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663421105445/cFGdWDkrANNYKLKZNYEBQs/kids-class-dvQXQWqqZ3wsmdYD2DBhVJ.webp";
+const KIDS_IMAGE = "/kids-classroom.jpg";
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -27,6 +27,7 @@ function useInView(threshold = 0.15) {
 }
 
 export default function Bambini() {
+  useEffect(() => { window.scrollTo({ top: 0 }); }, []);
   const hero = useInView();
   const approach = useInView();
   const benefits = useInView();
@@ -191,22 +192,22 @@ export default function Bambini() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                age: "6-8 anni",
+                age: "3-5 anni",
                 title: "Piccoli Esploratori",
-                desc: "Primo approccio all'inglese attraverso gioco, canzoni e attività pratiche.",
+                desc: "Primo approccio all'inglese attraverso gioco, canzoni, suoni e attività sensoriali.",
                 focus: ["Ascolto", "Vocabolario base", "Pronuncia", "Divertimento"],
               },
               {
-                age: "9-11 anni",
+                age: "6-8 anni",
                 title: "Giovani Studenti",
-                desc: "Consolidamento delle basi con conversazione semplice e attività più strutturate.",
-                focus: ["Conversazione", "Lettura", "Scrittura base", "Sicurezza"],
+                desc: "Consolidamento delle basi con conversazione semplice e attività pratiche.",
+                focus: ["Conversazione", "Lettura", "Vocabolario", "Sicurezza"],
               },
               {
-                age: "12-14 anni",
-                title: "Adolescenti",
-                desc: "Sviluppo della fluidità e della capacità di esprimere idee e opinioni.",
-                focus: ["Conversazione fluida", "Vocabolario avanzato", "Tempi complessi", "Autonomia"],
+                age: "9-10 anni",
+                title: "Inglese in Azione",
+                desc: "Sviluppo della fluidità e della capacità di esprimere idee e opinioni in inglese.",
+                focus: ["Conversazione fluida", "Vocabolario avanzato", "Comprensione orale", "Autonomia"],
               },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl p-8 border border-border shadow-sm">

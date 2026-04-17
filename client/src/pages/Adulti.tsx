@@ -10,7 +10,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 
-const ADULTS_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663421105445/cFGdWDkrANNYKLKZNYEBQs/adults-class-jNjkFoj2UhEhJ89sJ5g2TN.webp";
+const ADULTS_IMAGE = "/classroom-adults.jpg";
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -27,6 +27,7 @@ function useInView(threshold = 0.15) {
 }
 
 export default function Adulti() {
+  useEffect(() => { window.scrollTo({ top: 0 }); }, []);
   const hero = useInView();
   const suited = useInView();
   const pathSection = useInView();
@@ -268,7 +269,7 @@ export default function Adulti() {
             rel="noopener noreferrer"
             className="inline-block bg-amber hover:bg-amber/90 text-navy font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105"
           >
-            Contattami su WhatsApp
+            Fai il test gratuito
           </a>
         </div>
       </section>
