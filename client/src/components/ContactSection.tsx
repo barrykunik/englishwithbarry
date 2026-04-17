@@ -65,7 +65,7 @@ export default function ContactSection() {
           <div className="space-y-8">
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/393000000000"
+              href="https://wa.me/393937620160"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/30 rounded-2xl p-6 transition-colors group"

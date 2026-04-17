@@ -189,7 +189,7 @@ export default function Recensioni() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/393000000000"
+              href="https://wa.me/393937620160"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-navy text-white px-8 py-4 rounded-xl font-body font-semibold hover:bg-navy/90 transition-colors"

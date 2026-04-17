@@ -203,7 +203,7 @@ export default function Servizi() {
             Contatta Barry per una consulenza gratuita. Ti aiuterà a scegliere il percorso perfetto per i tuoi obiettivi.
           </p>
           <a
-            href="https://wa.me/393000000000"
+            href="https://wa.me/393937620160"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-navy text-white px-8 py-4 rounded-xl font-body font-semibold hover:bg-navy/90 transition-colors"

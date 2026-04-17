@@ -86,7 +86,7 @@ export default function HeroSection() {
               ))}
             </div>
             <span className="font-body text-sm text-white/80">
-              <strong className="text-white"></strong> 
+              <strong className="text-white">+100 studenti</strong> · Dal 2006
             </span>
           </div>
 
@@ -97,7 +97,7 @@ export default function HeroSection() {
             }`}
           >
             <a
-              href="https://wa.me/393000000000"
+              href="https://wa.me/393937620160"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-amber px-8 py-4 rounded-full text-base font-body font-semibold text-center"

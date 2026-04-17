@@ -97,7 +97,7 @@ export default function CoursesSection() {
               ))}
             </ul>
             <a
-              href="https://wa.me/393000000000"
+              href="https://wa.me/393937620160"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-amber inline-block px-8 py-3.5 rounded-full font-body font-semibold text-sm"
@@ -141,7 +141,7 @@ export default function CoursesSection() {
               ))}
             </ul>
             <a
-              href="https://wa.me/393000000000"
+              href="https://wa.me/393937620160"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-amber inline-block px-8 py-3.5 rounded-full font-body font-semibold text-sm"

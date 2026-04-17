@@ -56,7 +56,7 @@ export default function Bambini() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="https://wa.me/393000000000"
+                  href="https://wa.me/393937620160"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-amber px-8 py-4 rounded-xl font-body font-semibold text-center"
@@ -242,7 +242,7 @@ export default function Bambini() {
             L'inglese è una porta verso il mondo. Contatta Barry per scoprire come i tuoi bambini possono imparare in modo naturale e divertente.
           </p>
           <a
-            href="https://wa.me/393000000000"
+            href="https://wa.me/393937620160"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-navy text-white px-8 py-4 rounded-xl font-body font-semibold hover:bg-navy/90 transition-colors"

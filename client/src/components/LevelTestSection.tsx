@@ -243,7 +243,7 @@ export default function LevelTestSection() {
                 </p>
                 <div className="space-y-3">
                   <a
-                    href="https://wa.me/393000000000"
+                    href="https://wa.me/393937620160"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-amber block w-full py-3.5 rounded-xl font-body font-semibold text-sm text-center"

@@ -5,6 +5,14 @@
 
 import { Globe, MessageCircle, Mail, Instagram, Facebook } from "lucide-react";
 
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.74a4.85 4.85 0 0 1-1.01-.05z"/>
+    </svg>
+  );
+}
+
 const navLinks = [
   { label: "Adulti", href: "#adulti" },
   { label: "Bambini", href: "#bambini" },
@@ -59,20 +67,31 @@ export default function Footer() {
                 <Mail className="w-4 h-4" />
               </a>
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
+                href="https://www.instagram.com/englishwithbarry/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/10 hover:bg-pink-500 flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
+                href="https://www.facebook.com/Englishwithbarry"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/10 hover:bg-blue-600 flex items-center justify-center transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@englishwithbarry"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg bg-white/10 hover:bg-black flex items-center justify-center transition-colors"
+                aria-label="TikTok"
+              >
+                <TikTokIcon className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -126,7 +145,7 @@ export default function Footer() {
                 Non sai qual è il tuo livello di inglese?
               </p>
               <a
-                href="https://wa.me/393937620160"
+                href="https://tally.so/r/q4aG6G"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-body text-xs font-semibold text-amber hover:text-white transition-colors"
