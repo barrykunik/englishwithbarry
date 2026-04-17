@@ -7,7 +7,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Globe, Heart, Trophy, Baby } from "lucide-react";
 
-const PORTRAIT_IMAGE = "/barry-classroom.webp";
+const PORTRAIT_IMAGE = "/barry-portrait.jpg";
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
