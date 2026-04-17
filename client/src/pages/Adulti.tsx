@@ -75,11 +75,6 @@ export default function Adulti() {
               <p className="font-body text-sm text-foreground/70 leading-relaxed mb-4">
                 Travelling English, Business English o Fluent English. Lezioni personalizzate al 100% sui tuoi obiettivi e ritmi.
               </p>
-              <div className="flex gap-2 flex-wrap">
-                {["€250", "€360", "€480", "€720"].map((p) => (
-                  <span key={p} className="bg-white border border-border rounded-lg px-3 py-1 font-mono-label text-xs text-navy">{p}</span>
-                ))}
-              </div>
             </a>
             <a
               href="/adulti/gruppo"
