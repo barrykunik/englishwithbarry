@@ -48,16 +48,15 @@ export default function AboutSection() {
             <div className="absolute -bottom-6 -right-6 w-3/4 h-3/4 bg-navy/5 rounded-3xl" />
 
             {/* Portrait */}
-            <div className="relative rounded-3xl overflow-hidden aspect-[3/4] shadow-2xl">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
                 src={PORTRAIT_IMAGE}
                 alt="Barry — insegnante di inglese madrelingua a Padova"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain bg-white"
               />
               {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-transparent to-transparent" />
               {/* Bottom label */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-navy/80 via-navy/40 to-transparent">
                 <div className="font-display text-2xl font-bold text-white">Barry</div>
                 <div className="font-mono-label text-sm text-white/80">Insegnante di Inglese · Padova</div>
               </div>
