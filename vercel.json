@@ -1,8 +1,5 @@
 {
-  "buildCommand": "pnpm run build",
-  "outputDirectory": "dist",
-  "framework": "vite",
-"env": {
-    "NODE_ENV": "production"
-  }
+  "buildCommand": "pnpm vite build",
+  "outputDirectory": "dist/public",
+  "framework": "vite"
 }
