@@ -2,8 +2,7 @@
   "buildCommand": "pnpm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "nodeVersion": "20.x",
-  "env": {
+"env": {
     "NODE_ENV": "production"
   }
 }
