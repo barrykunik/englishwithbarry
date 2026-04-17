@@ -9,18 +9,18 @@ import { Menu, X, Globe } from "lucide-react";
 import { useLocation } from "wouter";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Adulti", href: "/adulti" },
-  { label: "Bambini", href: "/bambini" },
-  { label: "Servizi", href: "/servizi" },
-  { label: "Chi Sono", href: "/chi-sono" },
-  { label: "Recensioni", href: "/recensioni" },
+  { label: "Home", section: null },
+  { label: "Adulti", section: "adulti" },
+  { label: "Bambini", section: "bambini" },
+  { label: "Servizi", section: "servizi" },
+  { label: "Chi Sono", section: "chi-sono" },
+  { label: "Recensioni", section: "recensioni" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [, navigate] = useLocation();
+  const [location, navigate] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -28,9 +28,28 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (section: string | null) => {
     setMobileOpen(false);
-    navigate(href);
+    const scrollToSection = (id: string) => {
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    };
+    if (!section) {
+      if (location !== "/") {
+        navigate("/");
+        setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100);
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    } else if (location === "/") {
+      scrollToSection(section);
+    } else {
+      navigate("/");
+      setTimeout(() => scrollToSection(section), 150);
+    }
   };
 
   return (
@@ -46,7 +65,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <button
-              onClick={() => handleNavClick("/")}
+              onClick={() => handleNavClick(null)}
               className="flex items-center gap-2 group"
             >
               <div className="w-9 h-9 rounded-full bg-navy flex items-center justify-center">
@@ -62,8 +81,8 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
                 <button
-                  key={link.href}
-                  onClick={() => handleNavClick(link.href)}
+                  key={link.label}
+                  onClick={() => handleNavClick(link.section)}
                   className="px-3 py-2 text-sm font-body font-medium text-navy/80 hover:text-navy transition-colors relative group"
                 >
                   {link.label}
@@ -101,8 +120,8 @@ export default function Navbar() {
             <div className="px-4 py-4 flex flex-col gap-1">
               {navLinks.map((link) => (
                 <button
-                  key={link.href}
-                  onClick={() => handleNavClick(link.href)}
+                  key={link.label}
+                  onClick={() => handleNavClick(link.section)}
                   className="text-left px-3 py-3 text-base font-body font-medium text-navy hover:bg-sand rounded-lg transition-colors"
                 >
                   {link.label}
