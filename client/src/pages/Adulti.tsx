@@ -66,7 +66,7 @@ export default function Adulti() {
           <div className="grid md:grid-cols-2 gap-6">
             <a
               href="/adulti/individuali"
-              className="group bg-sand rounded-2xl p-8 border border-border hover:border-amber hover:shadow-lg transition-all duration-300"
+              className="group bg-sand rounded-2xl p-12 border border-border hover:border-amber hover:shadow-lg transition-all duration-300"
             >
               <div className="font-mono-label text-xs text-amber uppercase tracking-widest mb-3">One-to-one</div>
               <h3 className="font-display text-2xl font-bold text-navy mb-3 group-hover:text-amber transition-colors">
@@ -78,7 +78,7 @@ export default function Adulti() {
             </a>
             <a
               href="/adulti/gruppo"
-              className="group bg-sand rounded-2xl p-8 border border-border hover:border-amber hover:shadow-lg transition-all duration-300"
+              className="group bg-sand rounded-2xl p-12 border border-border hover:border-amber hover:shadow-lg transition-all duration-300"
             >
               <div className="font-mono-label text-xs text-amber uppercase tracking-widest mb-3">Piccoli gruppi</div>
               <h3 className="font-display text-2xl font-bold text-navy mb-3 group-hover:text-amber transition-colors">
