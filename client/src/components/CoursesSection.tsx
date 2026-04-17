@@ -97,9 +97,7 @@ export default function CoursesSection() {
               ))}
             </ul>
             <a
-              href="https://wa.me/393937620160"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/adulti"
               className="btn-amber inline-block px-8 py-3.5 rounded-full font-body font-semibold text-sm"
             >
               <span>Scopri il percorso Adulti</span>
@@ -141,9 +139,7 @@ export default function CoursesSection() {
               ))}
             </ul>
             <a
-              href="https://wa.me/393937620160"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/bambini"
               className="btn-amber inline-block px-8 py-3.5 rounded-full font-body font-semibold text-sm"
             >
               <span>Scopri il percorso Bambini</span>
