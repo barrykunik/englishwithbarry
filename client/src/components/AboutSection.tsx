@@ -7,7 +7,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Globe, Heart, Trophy, Baby } from "lucide-react";
 
-const PORTRAIT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663421105445/cFGdWDkrANNYKLKZNYEBQs/IMG_20161011_191624_cropped_0cc0a1c7.jpg";
+const PORTRAIT_IMAGE = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663421105445/atftVUbzwUFdCuxJ.webp";
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
