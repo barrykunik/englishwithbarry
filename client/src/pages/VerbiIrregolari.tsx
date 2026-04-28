@@ -1,5 +1,5 @@
-import { useEffect, useReducer, useCallback } from "react";
-import { Shuffle, RotateCcw, SortAsc, ChevronLeft, ChevronRight, Check, X } from "lucide-react";
+import { useEffect, useReducer, useCallback, useRef, useState } from "react";
+import { Shuffle, RotateCcw, SortAsc, ChevronLeft, ChevronRight, Check, X, Volume2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -277,18 +277,92 @@ export default function VerbiIrregolari() {
   const pct = VERBS.length ? (done / VERBS.length) * 100 : 0;
   const remaining = VERBS.length - state.known.size - state.learning.size;
 
+  // ── Speech Synthesis ───────────────────────────────────────────────────
+  const voiceRef = useRef<SpeechSynthesisVoice | null>(null);
+  const [speakingSlot, setSpeakingSlot] = useState<"v1" | "v2" | "v3" | null>(null);
+  const [autoSpeak, setAutoSpeak] = useState(false);
+
+  useEffect(() => {
+    const loadVoice = () => {
+      const voices = window.speechSynthesis.getVoices();
+      voiceRef.current =
+        voices.find(v => v.lang === "en-GB" && /female/i.test(v.name)) ||
+        voices.find(v => v.lang === "en-GB") ||
+        voices.find(v => v.lang === "en-US" && /female/i.test(v.name)) ||
+        voices.find(v => v.lang.startsWith("en")) ||
+        null;
+    };
+    loadVoice();
+    window.speechSynthesis.onvoiceschanged = loadVoice;
+    return () => { window.speechSynthesis.onvoiceschanged = null; };
+  }, []);
+
+  const speak = useCallback((rawText: string, slot: "v1" | "v2" | "v3") => {
+    if (!window.speechSynthesis) return;
+    window.speechSynthesis.cancel();
+    const text = rawText.split("/")[0].trim();
+    if (!text || text === "–") return;
+    const utt = new SpeechSynthesisUtterance(text);
+    utt.lang = "en-GB";
+    utt.rate = 0.82;
+    utt.pitch = 1;
+    if (voiceRef.current) utt.voice = voiceRef.current;
+    setSpeakingSlot(slot);
+    utt.onend = () => setSpeakingSlot(null);
+    utt.onerror = () => setSpeakingSlot(null);
+    window.speechSynthesis.speak(utt);
+  }, []);
+
+  const speakCurrent = useCallback(() => {
+    if (!verb) return;
+    if (!state.flipped) speak(verb[0], "v1");
+    else speak(verb[1], "v2");
+  }, [verb, state.flipped, speak]);
+
+  // Auto-speak V1 when the card changes
+  useEffect(() => {
+    if (autoSpeak && verb) {
+      const timer = setTimeout(() => speak(verb[0], "v1"), 120);
+      return () => clearTimeout(timer);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.index, state.deck, state.filterMode, autoSpeak]);
+
+  // ── Keyboard handler ───────────────────────────────────────────────────
   const handleKey = useCallback((e: KeyboardEvent) => {
     if (e.key === " " || e.key === "Enter") { e.preventDefault(); dispatch({ type: "FLIP" }); }
     if (e.key === "ArrowRight") dispatch({ type: "NAV", dir: 1 });
     if (e.key === "ArrowLeft")  dispatch({ type: "NAV", dir: -1 });
     if (e.key === "k" || e.key === "K") dispatch({ type: "MARK", verdict: "know" });
     if (e.key === "l" || e.key === "L") dispatch({ type: "MARK", verdict: "learning" });
-  }, []);
+    if (e.key === "p" || e.key === "P") speakCurrent();
+  }, [speakCurrent]);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [handleKey]);
+
+  // ── Speak button component ─────────────────────────────────────────────
+  const SpeakBtn = ({ slot, text, light = false }: { slot: "v1" | "v2" | "v3"; text: string; light?: boolean }) => (
+    <button
+      onClick={e => { e.stopPropagation(); speak(text, slot); }}
+      title={`Pronounce (P)`}
+      className={[
+        "flex items-center justify-center w-9 h-9 rounded-full border-2 transition-all duration-150 flex-shrink-0",
+        light
+          ? "border-white/30 text-white/70 hover:bg-white/20 hover:border-white/60 hover:text-white"
+          : "border-navy/20 text-navy/50 hover:bg-navy/10 hover:border-navy/40 hover:text-navy",
+        speakingSlot === slot
+          ? light
+            ? "bg-amber/30 border-amber text-amber animate-pulse"
+            : "bg-amber/20 border-amber text-amber animate-pulse"
+          : "",
+      ].join(" ")}
+    >
+      <Volume2 className="w-4 h-4" />
+    </button>
+  );
 
   return (
     <div className="min-h-screen bg-navy">
@@ -342,7 +416,7 @@ export default function VerbiIrregolari() {
 
         {/* Card */}
         <div
-          className="w-full max-w-md h-64 cursor-pointer mb-5"
+          className="w-full max-w-md h-64 cursor-pointer mb-2"
           style={{ perspective: "900px" }}
           onClick={() => dispatch({ type: "FLIP" })}
           title="Click to flip"
@@ -360,9 +434,12 @@ export default function VerbiIrregolari() {
               style={{ backfaceVisibility: "hidden" }}
             >
               <span className="font-mono-label text-xs tracking-widest text-navy/40 uppercase mb-2">Base form (V1)</span>
-              <div className="font-display text-5xl font-bold text-navy mb-3">{verb?.[0] ?? "–"}</div>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="font-display text-5xl font-bold text-navy">{verb?.[0] ?? "–"}</div>
+                <SpeakBtn slot="v1" text={verb?.[0] ?? ""} />
+              </div>
               <div className="font-body text-base text-navy/50 italic">🇮🇹 {verb?.[3] ?? "–"}</div>
-              <span className="absolute bottom-3 font-mono-label text-xs text-navy/30">click or press Space to flip</span>
+              <span className="absolute bottom-3 font-mono-label text-xs text-navy/30">click · Space to flip · P to pronounce</span>
             </div>
 
             {/* Back */}
@@ -372,20 +449,26 @@ export default function VerbiIrregolari() {
             >
               <div className="text-center mb-4">
                 <span className="font-mono-label text-xs tracking-widest text-amber/70 uppercase">Past Simple (V2)</span>
-                <div className="font-display text-3xl font-bold text-white mt-1">{verb?.[1] ?? "–"}</div>
+                <div className="flex items-center justify-center gap-3 mt-1">
+                  <div className="font-display text-3xl font-bold text-white">{verb?.[1] ?? "–"}</div>
+                  <SpeakBtn slot="v2" text={verb?.[1] ?? ""} light />
+                </div>
               </div>
               <div className="w-10 h-px bg-white/20 mb-4" />
               <div className="text-center">
                 <span className="font-mono-label text-xs tracking-widest text-amber/70 uppercase">Past Participle (V3)</span>
-                <div className="font-display text-3xl font-bold text-white mt-1">{verb?.[2] ?? "–"}</div>
+                <div className="flex items-center justify-center gap-3 mt-1">
+                  <div className="font-display text-3xl font-bold text-white">{verb?.[2] ?? "–"}</div>
+                  <SpeakBtn slot="v3" text={verb?.[2] ?? ""} light />
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Keyboard hint */}
-        <p className="font-mono-label text-xs text-white/35 mb-4 text-center">
-          ← → to navigate &nbsp;|&nbsp; Space to flip &nbsp;|&nbsp; K = know &nbsp;|&nbsp; L = learning
+        <p className="font-mono-label text-xs text-white/35 mb-5 text-center">
+          ← → navigate &nbsp;|&nbsp; Space flip &nbsp;|&nbsp; P pronounce &nbsp;|&nbsp; K know &nbsp;|&nbsp; L learning
         </p>
 
         {/* Nav buttons */}
@@ -428,16 +511,30 @@ export default function VerbiIrregolari() {
           </button>
         </div>
 
-        {/* Filter toggle */}
-        <label className="flex items-center gap-3 cursor-pointer text-white text-sm font-body">
-          <div
-            onClick={() => dispatch({ type: "TOGGLE_FILTER" })}
-            className={`relative w-11 h-6 rounded-full transition-colors ${state.filterMode ? "bg-amber" : "bg-white/20"}`}
-          >
-            <div className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-transform ${state.filterMode ? "translate-x-6" : "translate-x-1"}`} />
-          </div>
-          Show only "Still learning" cards
-        </label>
+        {/* Toggles row */}
+        <div className="flex flex-col items-center gap-3">
+          {/* Filter toggle */}
+          <label className="flex items-center gap-3 cursor-pointer text-white text-sm font-body">
+            <div
+              onClick={() => dispatch({ type: "TOGGLE_FILTER" })}
+              className={`relative w-11 h-6 rounded-full transition-colors ${state.filterMode ? "bg-amber" : "bg-white/20"}`}
+            >
+              <div className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-transform ${state.filterMode ? "translate-x-6" : "translate-x-1"}`} />
+            </div>
+            Show only "Still learning" cards
+          </label>
+
+          {/* Auto-speak toggle */}
+          <label className="flex items-center gap-3 cursor-pointer text-white/70 text-sm font-body">
+            <div
+              onClick={() => setAutoSpeak(p => !p)}
+              className={`relative w-11 h-6 rounded-full transition-colors ${autoSpeak ? "bg-amber" : "bg-white/20"}`}
+            >
+              <div className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-transform ${autoSpeak ? "translate-x-6" : "translate-x-1"}`} />
+            </div>
+            <Volume2 className="w-4 h-4" /> Auto-pronounce each card
+          </label>
+        </div>
       </div>
 
       <Footer />
