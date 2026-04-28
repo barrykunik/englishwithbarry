@@ -62,11 +62,6 @@ export default function AboutSection() {
               </div>
             </div>
 
-            {/* Floating card */}
-            <div className="absolute -right-4 top-1/3 bg-white rounded-2xl shadow-xl p-4 border border-border max-w-[160px]">
-              <div className="font-display text-3xl font-bold text-amber">🇦🇺</div>
-              <div className="font-body text-xs text-navy font-medium mt-1">Australiano<br />Madrelingua</div>
-            </div>
           </div>
 
           {/* Content */}
