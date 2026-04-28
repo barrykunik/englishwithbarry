@@ -51,10 +51,10 @@ export default function Navbar() {
               onClick={() => handleNavClick("/")}
               className="flex items-center gap-2 group"
             >
-              <div className="w-9 h-9 rounded-full bg-navy flex items-center justify-center">
+              <div className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-300 ${scrolled ? "bg-navy" : "bg-white/20"}`}>
                 <Globe className="w-5 h-5 text-amber" />
               </div>
-              <span className="font-display font-bold text-lg text-navy leading-tight">
+              <span className={`font-display font-bold text-lg leading-tight transition-colors duration-300 ${scrolled ? "text-navy" : "text-white"}`}>
                 English<br className="hidden" />
                 <span className="text-amber"> With Barry</span>
               </span>
@@ -66,7 +66,11 @@ export default function Navbar() {
                 <button
                   key={link.label}
                   onClick={() => handleNavClick(link.href)}
-                  className="px-3 py-2 text-sm font-body font-medium text-navy/80 hover:text-navy transition-colors relative group"
+                  className={`px-3 py-2 text-sm font-body font-medium transition-colors duration-300 relative group ${
+                    scrolled
+                      ? "text-navy/80 hover:text-navy"
+                      : "text-white/90 hover:text-white"
+                  }`}
                 >
                   {link.label}
                   <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-amber scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-200" />
@@ -89,7 +93,7 @@ export default function Navbar() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 text-navy"
+              className={`md:hidden p-2 transition-colors duration-300 ${scrolled ? "text-navy" : "text-white"}`}
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
