@@ -15,7 +15,7 @@ const navLinks = [
   { label: "Servizi", href: "/servizi" },
   { label: "Chi Sono", href: "/chi-sono" },
   { label: "Recensioni", href: "/recensioni" },
-  { label: "Irregular Verbs", href: "/verbi-irregolari" },
+  { label: "🏋️ Palestra dei Verbi", href: "/palestra-verbi" },
 ];
 
 export default function Navbar() {

@@ -11,7 +11,9 @@ import ChiSono from "./pages/ChiSono";
 import Recensioni from "./pages/Recensioni";
 import PercorsiIndividuali from "./pages/PercorsiIndividuali";
 import PercorsiGruppo from "./pages/PercorsiGruppo";
+import PalestraVerbi from "./pages/PalestraVerbi";
 import VerbiIrregolari from "./pages/VerbiIrregolari";
+import VerbiPhrasali from "./pages/VerbiPhrasali";
 import NotFound from "./pages/NotFound";
 
 function Router() {
@@ -21,7 +23,9 @@ function Router() {
       <Route path="/adulti" component={Adulti} />
       <Route path="/adulti/individuali" component={PercorsiIndividuali} />
       <Route path="/adulti/gruppo" component={PercorsiGruppo} />
+      <Route path="/palestra-verbi" component={PalestraVerbi} />
       <Route path="/verbi-irregolari" component={VerbiIrregolari} />
+      <Route path="/verbi-frasali" component={VerbiPhrasali} />
       <Route path="/bambini" component={Bambini} />
       <Route path="/servizi" component={Servizi} />
       <Route path="/chi-sono" component={ChiSono} />
