@@ -101,7 +101,7 @@ export default function ChiSono() {
               <div>
                 <h3 className="font-display text-2xl font-bold mb-4 text-amber">Come Ho Iniziato</h3>
                 <p className="font-body text-lg leading-relaxed">
-                  Sono nato e cresciuto in Australia, dove l'inglese è la mia lingua madre. Fin da giovane, ho capito che la lingua è uno strumento potentissimo — apre porte, crea connessioni, cambia vite.
+                  Sono Barry, australiano, madrelingua e insegnante di inglese da quasi 20 anni. Sportivo per natura, credo in un inglese vivo, pratico e concreto — proprio come lo sport: si impara facendo, muovendosi e usando la lingua in modo reale.
                 </p>
               </div>
               <p className="font-body text-lg leading-relaxed">
