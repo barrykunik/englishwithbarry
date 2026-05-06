@@ -7,7 +7,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Star } from "lucide-react";
 
-const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663421105445/cFGdWDkrANNYKLKZNYEBQs/Gemini_Generated_Image_s3t7lqs3t7lqs3t7_3f17ebd2.png";
+const HERO_IMAGE = "/barry-classroom.webp";
 
 export default function HeroSection() {
   const [visible, setVisible] = useState(false);
@@ -33,7 +33,7 @@ export default function HeroSection() {
         <img
           src={HERO_IMAGE}
           alt="Lezione di inglese a Padova"
-          className="w-full h-full object-cover object-top brightness-150 saturate-110"
+          className="w-full h-full object-cover object-center"
         />
         {/* Gradient overlay: left dark enough for text, right nearly clear */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/35 to-transparent" />
