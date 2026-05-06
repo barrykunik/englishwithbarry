@@ -87,7 +87,7 @@ export default function HeroSection() {
               ))}
             </div>
             <span className="font-body text-sm text-white/80">
-              <strong className="text-white">+100 studenti</strong> · Dal 2006
+              <strong className="text-white">+1000 studenti</strong> · Dal 2006
             </span>
           </div>
 

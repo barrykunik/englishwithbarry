@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 
 const stats = [
   { value: "20", suffix: "+", label: "Anni di esperienza" },
-  { value: "100", suffix: "+", label: "Studenti soddisfatti" },
+  { value: "1000", suffix: "+", label: "Studenti soddisfatti" },
   { value: "2", suffix: "", label: "Metodi esclusivi (T.E.D.)" },
   { value: "5", suffix: "★", label: "Valutazione media" },
 ];
