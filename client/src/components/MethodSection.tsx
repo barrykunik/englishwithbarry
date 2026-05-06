@@ -5,7 +5,7 @@
    ============================================================ */
 
 import { useEffect, useRef, useState } from "react";
-import { Mic, BookOpen, Lightbulb, Gamepad2 } from "lucide-react";
+import { Mic, BookOpen, Lightbulb, Gamepad2, Play, PenLine, MessageCircle } from "lucide-react";
 
 const ONLINE_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663421105445/cFGdWDkrANNYKLKZNYEBQs/online-lesson-HGmnQDVyk7WvsnEeiUEiR9.webp";
 const ADULTS_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663421105445/cFGdWDkrANNYKLKZNYEBQs/adults-class-jNjkFoj2UhEhJ89sJ5g2TN.webp";
@@ -67,17 +67,17 @@ export default function MethodSection() {
                 Metodo T.E.D.
               </h3>
               <p className="font-body text-sm text-white/70 leading-relaxed mb-6">
-                Ispirato ai famosi TED Talks, questo metodo sviluppa ascolto autentico, vocabolario in contesto reale e sicurezza nel parlare. Ogni lezione è un'esperienza coinvolgente, non una sessione di grammatica.
+                Un metodo in tre fasi che trasforma l'ascolto passivo in comunicazione reale. Prima della lezione lo studente guarda un autentico TED Talk — con sottotitoli in inglese o in italiano, a seconda del livello. Poi prende nota dei punti chiave. In classe, mi racconta il video come se io non lo avessi mai visto: questo è il momento in cui la lingua prende vita.
               </p>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {[
-                  { icon: Mic, text: "Ascolto di contenuti autentici" },
-                  { icon: BookOpen, text: "Vocabolario in contesto reale" },
-                  { icon: Lightbulb, text: "Sicurezza e fluidità nel parlato" },
-                ].map(({ icon: Icon, text }, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <Icon className="w-4 h-4 text-amber shrink-0" />
-                    <span className="font-body text-sm text-white/80">{text}</span>
+                  { icon: Play,          step: "1", text: "Guarda un TED Talk con sottotitoli EN o IT (in base al livello)" },
+                  { icon: PenLine,       step: "2", text: "Scrive i punti chiave del video a casa" },
+                  { icon: MessageCircle, step: "3", text: "In classe lo racconta a Barry — come se lui non lo avesse mai visto" },
+                ].map(({ icon: Icon, step, text }, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="flex items-center justify-center w-6 h-6 rounded-full bg-amber text-navy font-bold text-xs shrink-0 mt-0.5">{step}</div>
+                    <span className="font-body text-sm text-white/80 leading-snug">{text}</span>
                   </div>
                 ))}
               </div>

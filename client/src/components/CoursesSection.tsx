@@ -81,7 +81,7 @@ export default function CoursesSection() {
               Inglese per <span className="italic text-amber">Adulti</span>
             </h3>
             <p className="font-body text-base text-foreground/80 leading-relaxed mb-6">
-              Dal livello zero alla fluency: lezioni pratiche e coinvolgenti per iniziare, ripartire o migliorare la scioltezza nel parlato. Il metodo <strong>T.E.D.</strong>, ispirato ai TED Talks, sviluppa ascolto, vocabolario e sicurezza.
+              Dal livello zero alla fluency: lezioni pratiche e coinvolgenti per iniziare, ripartire o migliorare la scioltezza nel parlato. Con il metodo <strong>T.E.D.</strong> guardi un TED Talk, prendi note e poi lo racconti in classe — come se io non lo avessi mai visto. Ascolto autentico, vocabolario reale, fluency garantita.
             </p>
             <ul className="space-y-3 mb-8">
               {[
