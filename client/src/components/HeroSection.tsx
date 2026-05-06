@@ -33,10 +33,10 @@ export default function HeroSection() {
         <img
           src={HERO_IMAGE}
           alt="Lezione di inglese a Padova"
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-cover object-top brightness-150 saturate-110"
         />
         {/* Gradient overlay: left dark enough for text, right nearly clear */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/75 via-navy/40 to-navy/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/35 to-transparent" />
         {/* Bottom fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[oklch(0.97_0.015_80)] to-transparent" />
       </div>
