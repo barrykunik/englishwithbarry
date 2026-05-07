@@ -79,7 +79,7 @@ export default function ServicesSection() {
           <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-2">
             Tutti i <span className="italic text-amber">Servizi</span>
           </h2>
-          <p className="font-body text-lg text-white/70 mt-4 max-w-xl mx-auto">
+          <p className="font-body text-lg text-white/90 mt-4 max-w-xl mx-auto">
             Un approccio completo all'inglese, adattato alle tue esigenze e ai tuoi obiettivi.
           </p>
         </div>
@@ -104,8 +104,8 @@ export default function ServicesSection() {
                     {service.tag}
                   </span>
                 </div>
-                <h3 className="font-display text-lg font-bold text-white mb-2">{service.title}</h3>
-                <p className="font-body text-sm text-white/65 leading-relaxed">{service.desc}</p>
+                <h3 className="font-display text-xl font-bold text-white mb-2">{service.title}</h3>
+                <p className="font-body text-base text-white/90 leading-relaxed">{service.desc}</p>
               </div>
             );
           })}

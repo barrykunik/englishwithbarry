@@ -66,7 +66,7 @@ export default function MethodSection() {
               <h3 className="font-display text-2xl font-bold text-white mb-3">
                 Metodo T.E.D.
               </h3>
-              <p className="font-body text-sm text-white/70 leading-relaxed mb-6">
+              <p className="font-body text-base text-white/90 leading-relaxed mb-6">
                 Un metodo in tre fasi che trasforma l'ascolto passivo in comunicazione reale. Prima della lezione lo studente guarda un autentico TED Talk — con sottotitoli in inglese o in italiano, a seconda del livello. Poi prende nota dei punti chiave. In classe, mi racconta il video come se io non lo avessi mai visto: questo è il momento in cui la lingua prende vita.
               </p>
               <div className="space-y-4">
@@ -77,7 +77,7 @@ export default function MethodSection() {
                 ].map(({ icon: Icon, step, text }, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <div className="flex items-center justify-center w-6 h-6 rounded-full bg-amber text-navy font-bold text-xs shrink-0 mt-0.5">{step}</div>
-                    <span className="font-body text-sm text-white/80 leading-snug">{text}</span>
+                    <span className="font-body text-base text-white/90 leading-snug">{text}</span>
                   </div>
                 ))}
               </div>
