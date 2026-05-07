@@ -74,6 +74,9 @@
 }
 
 @layer base {
+  html {
+    font-size: 19px; /* up from browser default 16px — scales all rem-based sizes */
+  }
   * {
     @apply border-border outline-ring/50;
   }
