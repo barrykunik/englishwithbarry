@@ -37,11 +37,12 @@ export default function ChiSono() {
       <Navbar />
       <main className="flex-1">
         {/* Full Width Image Section */}
-        <section className="w-full bg-white">
+        <section className="w-full bg-white overflow-hidden">
           <img
             src={TEACHER_IMAGE}
             alt="Barry, insegnante di inglese"
-            className="w-full h-auto object-contain"
+            className="w-full h-auto block"
+            style={{ marginBottom: "-6%" }}
           />
         </section>
 
