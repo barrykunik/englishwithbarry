@@ -52,7 +52,8 @@ export default function AboutSection() {
               <img
                 src={PORTRAIT_IMAGE}
                 alt="Barry — insegnante di inglese madrelingua a Padova"
-                className="w-full h-full object-contain bg-white"
+                className="w-full h-full object-contain bg-white block"
+                style={{ marginBottom: "-10%" }}
               />
               {/* Gradient overlay */}
               {/* Bottom label */}
