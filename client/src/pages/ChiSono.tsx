@@ -64,7 +64,6 @@ export default function ChiSono() {
                 </div>
                 <div>
                   <p className="font-body font-semibold text-navy">Madrelingua Australiano</p>
-                  <p className="font-body text-sm text-foreground/60">Nato e cresciuto in Australia</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
