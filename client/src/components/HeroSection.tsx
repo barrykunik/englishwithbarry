@@ -1,11 +1,12 @@
 /* ============================================================
    HERO SECTION — English With Barry
-   Design: Full-bleed diagonal split — image left, bold text right
-   Dark overlay on image, white text on left, navy text on right
+   Design: Full-bleed image, dark gradient left, text over it.
+   ONE action: start a conversation. Everything else is quieter.
    ============================================================ */
 
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown, Star } from "lucide-react";
+import { Star } from "lucide-react";
+import { WA } from "@/lib/contact";
 
 const HERO_IMAGE = "/barry-classroom.webp";
 
@@ -18,8 +19,8 @@ export default function HeroSection() {
     return () => clearTimeout(timer);
   }, []);
 
-  const scrollToNext = () => {
-    const el = document.querySelector("#adulti");
+  const scrollToPercorsi = () => {
+    const el = document.querySelector("#percorsi");
     if (el) {
       const top = el.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top, behavior: "smooth" });
@@ -37,7 +38,7 @@ export default function HeroSection() {
           style={{ objectPosition: "50% 30%" }}
         />
         {/* Gradient overlay: left dark enough for text, right nearly clear */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy/70 via-navy/35 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/75 via-navy/40 to-transparent" />
         {/* Bottom fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[oklch(0.97_0.015_80)] to-transparent" />
       </div>
@@ -66,13 +67,15 @@ export default function HeroSection() {
             <span className="text-amber italic">con sicurezza.</span>
           </h1>
 
-          {/* Subtitle */}
+          {/* Subtitle — points at the one action */}
           <p
-            className={`font-body text-lg md:text-xl text-white/85 leading-relaxed mb-8 max-w-xl transition-all duration-700 delay-200 ${
+            className={`font-body text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-xl transition-all duration-700 delay-200 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
-            Corsi di inglese a Padova per adulti e bambini. Metodo pratico, dinamico e coinvolgente — online o in presenza.
+            Corsi di inglese a Padova per adulti e bambini, online o in presenza.
+            Non devi scegliere adesso: raccontami cosa ti serve e costruiamo insieme
+            il percorso giusto per te.
           </p>
 
           {/* Social proof */}
@@ -82,7 +85,7 @@ export default function HeroSection() {
             }`}
           >
             <div className="flex">
-              {[1,2,3,4,5].map(i => (
+              {[1, 2, 3, 4, 5].map((i) => (
                 <Star key={i} className="w-4 h-4 text-amber fill-amber" />
               ))}
             </div>
@@ -91,45 +94,32 @@ export default function HeroSection() {
             </span>
           </div>
 
-          {/* CTAs */}
+          {/* THE action — one button, nothing competing with it */}
           <div
-            className={`flex flex-col sm:flex-row gap-4 transition-all duration-700 delay-400 ${
+            className={`transition-all duration-700 delay-400 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
           >
             <a
-              href="https://wa.me/393937620160"
+              href={WA.general}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-amber px-8 py-4 rounded-full text-base font-body font-semibold text-center"
+              className="btn-amber inline-block px-10 py-4 rounded-full text-base font-body font-semibold text-center"
             >
-              <span>Inizia Gratuitamente</span>
+              <span>Dimmi cosa ti serve</span>
             </a>
-            <button
-              onClick={() => {
-                const el = document.querySelector("#servizi");
-                if (el) {
-                  const top = el.getBoundingClientRect().top + window.scrollY - 80;
-                  window.scrollTo({ top, behavior: "smooth" });
-                }
-              }}
-              className="btn-navy-outline px-8 py-4 rounded-full text-base bg-white/10 border-white/60 text-white hover:bg-white hover:text-navy"
-            >
-              Scopri i Corsi
-            </button>
+            <p className="font-body text-sm text-white/70 mt-4">
+              Ti rispondo personalmente su WhatsApp, senza impegno.{" "}
+              <button
+                onClick={scrollToPercorsi}
+                className="underline underline-offset-4 decoration-white/40 hover:decoration-amber hover:text-amber transition-colors"
+              >
+                Oppure guarda prima i percorsi
+              </button>
+            </p>
           </div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <button
-        onClick={scrollToNext}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/60 hover:text-white transition-colors"
-        aria-label="Scorri in basso"
-      >
-        <span className="font-mono-label text-xs tracking-widest uppercase">Scopri</span>
-        <ChevronDown className="w-5 h-5 animate-bounce" />
-      </button>
     </section>
   );
 }

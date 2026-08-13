@@ -9,6 +9,7 @@ import { CheckCircle2, Users, MapPin, Monitor, BookOpen, Zap } from "lucide-reac
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import { LEVEL_TEST_URL } from "@/lib/contact";
 
 const ADULTS_IMAGE = "/classroom-adults.jpg";
 
@@ -300,7 +301,7 @@ export default function Adulti() {
             Fai il test gratuito per scoprire il tuo livello di inglese e ricevi un percorso personalizzato.
           </p>
           <a
-            href="https://tally.so/r/q4aG6G"
+            href={LEVEL_TEST_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-amber hover:bg-amber/90 text-navy font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105"

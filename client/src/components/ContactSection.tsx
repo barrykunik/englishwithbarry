@@ -1,12 +1,13 @@
 /* ============================================================
-   CONTACT SECTION — English With Barry
-   Design: Navy background, amber CTA, WhatsApp prominent
-   Simple contact form + direct contact options
+   CONTATTO — English With Barry
+   Design: Navy, one big WhatsApp action, email as fallback.
+   No form: the old one never sent anything. WhatsApp is where
+   these conversations actually start.
    ============================================================ */
 
 import { useEffect, useRef, useState } from "react";
-import { MessageCircle, Mail, MapPin, Clock, Send } from "lucide-react";
-import { toast } from "sonner";
+import { MessageCircle, Mail, MapPin, Clock } from "lucide-react";
+import { WA, EMAIL, EMAIL_LINK, LOCATION } from "@/lib/contact";
 
 function useInView(threshold = 0.1) {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,166 +23,106 @@ function useInView(threshold = 0.1) {
   return { ref, inView };
 }
 
+const steps = [
+  { n: "1", text: "Mi scrivi cosa ti serve — anche solo due righe, in italiano." },
+  { n: "2", text: "Ti faccio qualche domanda per capire livello, obiettivi e disponibilità." },
+  { n: "3", text: "Ti propongo il percorso più adatto. Se non fa per te, nessun problema." },
+];
+
 export default function ContactSection() {
   const { ref, inView } = useInView();
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [sending, setSending] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSending(true);
-    setTimeout(() => {
-      setSending(false);
-      toast.success("Messaggio inviato! Barry ti risponderà entro 24 ore.");
-      setFormData({ name: "", email: "", message: "" });
-    }, 1200);
-  };
 
   return (
-    <section id="contatti" ref={ref} className="py-20 md:py-32 bg-navy relative overflow-hidden">
+    <section id="contatti" ref={ref} className="py-20 md:py-28 bg-navy relative overflow-hidden">
       {/* Decorative */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-amber/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/3 rounded-full translate-y-1/2 -translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="font-mono-label text-sm tracking-widest text-amber uppercase">Contatti</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-2">
-            Inizia il tuo<br />
-            <span className="italic text-amber">percorso oggi</span>
+        <div className="text-center mb-12">
+          <span className="font-mono-label text-sm tracking-widest text-amber uppercase">Contatto</span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-2 mb-5">
+            Raccontami<br />
+            <span className="italic text-amber">cosa ti serve</span>
           </h2>
-          <p className="font-body text-lg text-white/70 mt-4 max-w-xl mx-auto">
-            Hai domande sui corsi? Vuoi capire qual è il percorso più adatto a te o a tuo figlio? Scrivimi senza impegno.
+          <p className="font-body text-lg text-white/80 max-w-xl mx-auto leading-relaxed">
+            Non serve sapere già quale corso vuoi. Scrivimi la tua situazione e ci penso io
+            a costruire il percorso giusto — per te o per tuo figlio.
           </p>
         </div>
 
+        {/* THE action */}
         <div
-          className={`grid md:grid-cols-2 gap-12 transition-all duration-700 ${
+          className={`transition-all duration-700 ${
             inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          {/* Contact info */}
-          <div className="space-y-8">
-            {/* WhatsApp CTA */}
-            <a
-              href="https://wa.me/393937620160"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4 bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/30 rounded-2xl p-6 transition-colors group"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-[#25D366] flex items-center justify-center shrink-0">
-                <MessageCircle className="w-7 h-7 text-white" />
-              </div>
-              <div>
-                <div className="font-body font-semibold text-white group-hover:text-[#25D366] transition-colors">
-                  Scrivimi su WhatsApp
-                </div>
-                <div className="font-mono-label text-sm text-white/60 mt-0.5">
-                  Rispondo entro poche ore
-                </div>
-              </div>
-            </a>
+          <a
+            href={WA.general}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-4 bg-[#25D366] hover:bg-[#20bd5a] rounded-2xl px-8 py-6 transition-colors shadow-lg"
+          >
+            <MessageCircle className="w-8 h-8 text-white shrink-0" />
+            <span className="font-body font-bold text-lg md:text-xl text-white text-center">
+              Scrivimi su WhatsApp
+            </span>
+          </a>
+          <p className="text-center font-body text-sm text-white/60 mt-4">
+            Messaggio già pronto — devi solo premere invio.
+          </p>
+        </div>
 
-            {/* Email */}
-            <a
-              href="mailto:corsiinglesepadova@gmail.com"
-              className="flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-6 transition-colors group"
-            >
-              <div className="w-14 h-14 rounded-2xl bg-amber/20 flex items-center justify-center shrink-0">
-                <Mail className="w-7 h-7 text-amber" />
+        {/* What happens next */}
+        <div
+          className={`grid sm:grid-cols-3 gap-6 mt-14 transition-all duration-700 delay-100 ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          {steps.map((s) => (
+            <div key={s.n} className="flex items-start gap-3">
+              <div className="flex items-center justify-center w-7 h-7 rounded-full bg-amber text-navy font-display font-bold text-sm shrink-0">
+                {s.n}
               </div>
-              <div>
-                <div className="font-body font-semibold text-white group-hover:text-amber transition-colors">
-                  corsiinglesepadova@gmail.com
-                </div>
-                <div className="font-mono-label text-sm text-white/60 mt-0.5">
-                  Rispondo sempre entro 24 ore
-                </div>
-              </div>
-            </a>
-
-            {/* Location */}
-            <div className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-6">
-              <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center shrink-0">
-                <MapPin className="w-7 h-7 text-white/70" />
-              </div>
-              <div>
-                <div className="font-body font-semibold text-white">Padova, Italia</div>
-                <div className="font-mono-label text-sm text-white/60 mt-0.5">
-                  Online e in presenza
-                </div>
-              </div>
+              <p className="font-body text-sm text-white/80 leading-relaxed">{s.text}</p>
             </div>
+          ))}
+        </div>
 
-            {/* Response time */}
-            <div className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-6">
-              <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center shrink-0">
-                <Clock className="w-7 h-7 text-white/70" />
+        {/* Secondary contact details */}
+        <div
+          className={`grid sm:grid-cols-3 gap-4 mt-14 pt-10 border-t border-white/10 transition-all duration-700 delay-200 ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <a
+            href={EMAIL_LINK}
+            className="flex items-center gap-3 group"
+          >
+            <Mail className="w-5 h-5 text-amber shrink-0" />
+            <div className="min-w-0">
+              <div className="font-body text-sm text-white group-hover:text-amber transition-colors truncate">
+                {EMAIL}
               </div>
-              <div>
-                <div className="font-body font-semibold text-white">Risposta garantita</div>
-                <div className="font-mono-label text-sm text-white/60 mt-0.5">
-                  Sempre entro 24 ore
-                </div>
-              </div>
+              <div className="font-mono-label text-xs text-white/50">Preferisci l'email?</div>
+            </div>
+          </a>
+
+          <div className="flex items-center gap-3">
+            <MapPin className="w-5 h-5 text-amber shrink-0" />
+            <div>
+              <div className="font-body text-sm text-white">{LOCATION}</div>
+              <div className="font-mono-label text-xs text-white/50">Online e in presenza</div>
             </div>
           </div>
 
-          {/* Contact form */}
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8">
-            <h3 className="font-display text-2xl font-bold text-white mb-6">
-              Mandami un messaggio
-            </h3>
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <label className="font-mono-label text-xs text-white/60 uppercase tracking-wide block mb-2">
-                  Nome
-                </label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="Il tuo nome"
-                  required
-                  className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 font-body text-sm focus:outline-none focus:border-amber focus:ring-1 focus:ring-amber transition-colors"
-                />
-              </div>
-              <div>
-                <label className="font-mono-label text-xs text-white/60 uppercase tracking-wide block mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="la.tua@email.com"
-                  required
-                  className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 font-body text-sm focus:outline-none focus:border-amber focus:ring-1 focus:ring-amber transition-colors"
-                />
-              </div>
-              <div>
-                <label className="font-mono-label text-xs text-white/60 uppercase tracking-wide block mb-2">
-                  Messaggio
-                </label>
-                <textarea
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Raccontami i tuoi obiettivi o fai una domanda..."
-                  required
-                  rows={4}
-                  className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 font-body text-sm focus:outline-none focus:border-amber focus:ring-1 focus:ring-amber transition-colors resize-none"
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={sending}
-                className="w-full btn-amber py-4 rounded-xl font-body font-semibold text-sm flex items-center justify-center gap-2 disabled:opacity-70"
-              >
-                <span>{sending ? "Invio in corso..." : "Invia Messaggio"}</span>
-                {!sending && <Send className="w-4 h-4 relative z-10" />}
-              </button>
-            </form>
+          <div className="flex items-center gap-3">
+            <Clock className="w-5 h-5 text-amber shrink-0" />
+            <div>
+              <div className="font-body text-sm text-white">Risposta entro 24 ore</div>
+              <div className="font-mono-label text-xs text-white/50">Rispondo io, di persona</div>
+            </div>
           </div>
         </div>
       </div>
