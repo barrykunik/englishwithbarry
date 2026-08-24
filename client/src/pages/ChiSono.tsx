@@ -10,7 +10,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 
-const TEACHER_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663421105445/cFGdWDkrANNYKLKZNYEBQs/barry_beach_full_38434cdb.jpg";
+const TEACHER_IMAGE = "/australia-beach.jpg";
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);

@@ -9,8 +9,8 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { LEVEL_TEST_URL } from "@/lib/contact";
 
-const ADULTS_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663421105445/cFGdWDkrANNYKLKZNYEBQs/adults-class-jNjkFoj2UhEhJ89sJ5g2TN.webp";
-const KIDS_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663421105445/cFGdWDkrANNYKLKZNYEBQs/kids-class-dvQXQWqqZ3wsmdYD2DBhVJ.webp";
+const ADULTS_IMAGE = "/online-lesson.png";
+const KIDS_IMAGE = "/kids-classroom.jpg";
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -30,6 +30,8 @@ const paths = [
   {
     href: "/adulti",
     image: ADULTS_IMAGE,
+    /* A device mockup, not a photo — it needs framing, not cropping. */
+    frame: "contain" as const,
     eyebrow: "Adulti e professionisti",
     title: "Inglese per Adulti",
     meta: "Online o in presenza · Individuale o in piccolo gruppo",
@@ -39,6 +41,7 @@ const paths = [
   {
     href: "/bambini",
     image: KIDS_IMAGE,
+    frame: "cover" as const,
     eyebrow: "Bambini · 3-10 anni",
     title: "Inglese per Bambini",
     meta: "In presenza a Padova · Piccoli gruppi, senza schermi",
@@ -74,13 +77,21 @@ export default function CoursesSection() {
               style={{ transitionDelay: `${i * 120}ms` }}
             >
               {/* Image */}
-              <div className="relative h-52 overflow-hidden">
+              <div
+                className={`relative h-52 overflow-hidden ${
+                  path.frame === "contain" ? "bg-navy" : ""
+                }`}
+              >
                 <img
                   src={path.image}
                   alt={path.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className={`w-full h-full group-hover:scale-105 transition-transform duration-500 ${
+                    path.frame === "contain" ? "object-contain p-6" : "object-cover"
+                  }`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
+                {path.frame === "cover" && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
+                )}
                 <span className="absolute bottom-4 left-6 font-mono-label text-xs text-white/90 tracking-widest uppercase">
                   {path.eyebrow}
                 </span>
