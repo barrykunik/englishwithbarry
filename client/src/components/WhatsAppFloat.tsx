@@ -4,11 +4,12 @@
    ============================================================ */
 
 import { MessageCircle } from "lucide-react";
+import { WA } from "@/lib/contact";
 
 export default function WhatsAppFloat() {
   return (
     <a
-      href="https://wa.me/393937620160"
+      href={WA.general}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 group"

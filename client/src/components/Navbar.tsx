@@ -7,15 +7,15 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Globe } from "lucide-react";
 import { useLocation } from "wouter";
+import { WA } from "@/lib/contact";
 
+/* Four links, not seven. Servizi, Palestra dei Verbi and Test di
+   livello are still reachable — from the page body and the footer. */
 const navLinks = [
-  { label: "Home", href: "/" },
   { label: "Adulti", href: "/adulti" },
   { label: "Bambini", href: "/bambini" },
-  { label: "Servizi", href: "/servizi" },
   { label: "Chi Sono", href: "/chi-sono" },
   { label: "Recensioni", href: "/recensioni" },
-  { label: "🏋️ Palestra dei Verbi", href: "/palestra-verbi" },
 ];
 
 export default function Navbar() {
@@ -81,12 +81,12 @@ export default function Navbar() {
             {/* CTA */}
             <div className="hidden md:flex items-center gap-3">
               <a
-                href="https://wa.me/393937620160"
+                href={WA.general}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-amber px-5 py-2.5 rounded-full text-sm font-body font-semibold"
               >
-                <span>Contattami</span>
+                <span>Scrivimi</span>
               </a>
             </div>
 
@@ -115,12 +115,12 @@ export default function Navbar() {
                 </button>
               ))}
               <a
-                href="https://wa.me/393937620160"
+                href={WA.general}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 btn-amber px-5 py-3 rounded-full text-center text-sm font-body font-semibold"
               >
-                <span>Contattami su WhatsApp</span>
+                <span>Scrivimi su WhatsApp</span>
               </a>
             </div>
           </div>

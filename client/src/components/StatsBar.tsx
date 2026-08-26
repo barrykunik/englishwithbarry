@@ -1,16 +1,16 @@
 /* ============================================================
-   STATS BAR — English With Barry
-   Design: Navy background, amber accent numbers
-   Shows key trust indicators
+   TRUST STRIP — English With Barry
+   Design: Navy band, amber figures.
+   Three facts, no sales language. Establishes credibility in
+   one glance so the visitor keeps reading.
    ============================================================ */
 
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: "20", suffix: "+", label: "Anni di esperienza" },
-  { value: "1000", suffix: "+", label: "Studenti soddisfatti" },
-  { value: "2", suffix: "", label: "Metodi esclusivi (T.E.D.)" },
-  { value: "5", suffix: "★", label: "Valutazione media" },
+  { value: "20", suffix: "+", label: "Anni di esperienza, dal 2006" },
+  { value: "1000", suffix: "+", label: "Studenti seguiti a Padova e online" },
+  { value: "A1", suffix: "→C1", label: "Dal primo giorno alla fluency" },
 ];
 
 function useInView(threshold = 0.2) {
@@ -31,9 +31,9 @@ export default function StatsBar() {
   const { ref, inView } = useInView();
 
   return (
-    <section ref={ref} className="bg-navy py-12 md:py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+    <section ref={ref} className="bg-navy py-10 md:py-14">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4">
           {stats.map((stat, i) => (
             <div
               key={i}

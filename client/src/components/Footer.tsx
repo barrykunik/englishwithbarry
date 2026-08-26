@@ -4,6 +4,7 @@
    ============================================================ */
 
 import { Globe, MessageCircle, Mail, Instagram, Facebook } from "lucide-react";
+import { WA, EMAIL, EMAIL_LINK, LEVEL_TEST_URL } from "@/lib/contact";
 
 function TikTokIcon({ className }: { className?: string }) {
   return (
@@ -13,28 +14,39 @@ function TikTokIcon({ className }: { className?: string }) {
   );
 }
 
-const navLinks = [
-  { label: "Adulti", href: "#adulti" },
-  { label: "Bambini", href: "#bambini" },
-  { label: "Servizi", href: "#servizi" },
-  { label: "Chi Sono", href: "#chi-sono" },
-  { label: "Recensioni", href: "#recensioni" },
-  { label: "Contatti", href: "#contatti" },
+/* Real routes, not "#anchors" — these used to be hash links to
+   homepage sections, which did nothing at all on every sub-page.
+   The footer is now the full site map: everything demoted from the
+   main nav is still one click away from here. */
+const navGroups = [
+  {
+    title: "Percorsi",
+    links: [
+      { label: "Adulti", href: "/adulti" },
+      { label: "— Individuali", href: "/adulti/individuali" },
+      { label: "— Di gruppo", href: "/adulti/gruppo" },
+      { label: "Bambini", href: "/bambini" },
+      { label: "Tutti i servizi", href: "/servizi" },
+    ],
+  },
+  {
+    title: "Risorse",
+    links: [
+      { label: "Test di livello", href: LEVEL_TEST_URL, external: true },
+      { label: "Palestra dei Verbi", href: "/palestra-verbi" },
+      { label: "Verbi irregolari", href: "/verbi-irregolari" },
+      { label: "Verbi frasali", href: "/verbi-frasali" },
+      { label: "Chi sono", href: "/chi-sono" },
+      { label: "Recensioni", href: "/recensioni" },
+    ],
+  },
 ];
 
 export default function Footer() {
-  const handleNavClick = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
-  };
-
   return (
     <footer className="bg-[oklch(0.18_0.06_255)] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -51,7 +63,7 @@ export default function Footer() {
             {/* Social */}
             <div className="flex gap-3 mt-6">
               <a
-                href="https://wa.me/393937620160"
+                href={WA.general}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#25D366] flex items-center justify-center transition-colors"
@@ -97,35 +109,42 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div>
-            <h4 className="font-mono-label text-xs text-amber uppercase tracking-widest mb-4">Navigazione</h4>
-            <ul className="space-y-2">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <button
-                    onClick={() => handleNavClick(link.href)}
-                    className="font-body text-sm text-white/60 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {navGroups.map((group) => (
+            <div key={group.title}>
+              <h4 className="font-mono-label text-xs text-amber uppercase tracking-widest mb-4">
+                {group.title}
+              </h4>
+              <ul className="space-y-2">
+                {group.links.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      {...("external" in link && link.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      className="font-body text-sm text-white/60 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
           {/* Contact */}
           <div>
             <h4 className="font-mono-label text-xs text-amber uppercase tracking-widest mb-4">Contatti</h4>
             <div className="space-y-3">
               <a
-                href="mailto:corsiinglesepadova@gmail.com"
-                className="flex items-center gap-2 font-body text-sm text-white/60 hover:text-white transition-colors"
+                href={EMAIL_LINK}
+                className="flex items-center gap-2 font-body text-sm text-white/60 hover:text-white transition-colors break-all"
               >
                 <Mail className="w-4 h-4 text-amber shrink-0" />
-                corsiinglesepadova@gmail.com
+                {EMAIL}
               </a>
               <a
-                href="https://wa.me/393937620160"
+                href={WA.general}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 font-body text-sm text-white/60 hover:text-white transition-colors"
@@ -145,7 +164,7 @@ export default function Footer() {
                 Non sai qual è il tuo livello di inglese?
               </p>
               <a
-                href="https://tally.so/r/q4aG6G"
+                href={LEVEL_TEST_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-body text-xs font-semibold text-amber hover:text-white transition-colors"
